@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# 모델 파일 (용량이 커서 제외)
+models/*.pth
+models/*.bin
+models/*.safetensors
+
+# 음성 샘플 (개인정보 보호)
+samples/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
