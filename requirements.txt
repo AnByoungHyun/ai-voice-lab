@@ -1,0 +1,18 @@
+# AI Voice Lab - Dependencies
+# Python 3.12+ required
+
+# Core TTS
+coqui-tts[codec]==0.27.5
+transformers>=4.43,<5.0
+
+# ML framework (Apple Silicon MPS 지원)
+torch>=2.10.0
+torchaudio>=2.10.0
+
+# Audio processing
+librosa==0.11.0
+soundfile==0.13.1
+
+# Utilities
+jupyter
+ipywidgets

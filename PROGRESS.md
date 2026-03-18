@@ -4,9 +4,9 @@
 
 ## 현재 상태
 
-**단계:** 1단계 준비 중  
-**마지막 업데이트:** 2026-03-17  
-**담당:** 지은 (OpenClaw)
+**단계:** 1단계 완료 (교안 보완 완료), 2단계 준비 중  
+**마지막 업데이트:** 2026-03-18  
+**담당:** Claude Code
 
 ## 완료된 작업
 
@@ -15,11 +15,21 @@
 - [x] AGENTS.md, CLAUDE.md, PROGRESS.md 작성
 - [x] 1단계 문서 초안 (docs/01-setup.md)
 - [x] .gitignore 설정
+- [x] Python 가상환경 설정 (.venv, Python 3.12.13)
+- [x] Coqui TTS 설치 및 XTTS v2 확인 (coqui-tts 0.27.5)
+- [x] transformers 호환성 이슈 해결 (5.x → 4.57.6)
+- [x] torchcodec 설치 (PyTorch 2.10+ 필수 의존성)
+- [x] requirements.txt 작성
+- [x] docs/01-setup.md 실제 환경 기반으로 업데이트 (트러블슈팅 포함)
+- [x] 교안 검수 Skill 생성 (.cursor/skills/review-edu-docs/)
+- [x] 교안 검수 결과에 따른 문서 보완 (2026-03-18)
+  - docs/01-setup.md: 학습 목표, 핵심 용어, 사전 지식, TTS 테스트 대안 추가
+  - README.md: 대상 독자, 기술 소개 표, docs 링크 연결, Python 버전 통일
+  - docs/00-glossary.md: 용어집 신규 생성
 
 ## 진행 중인 작업
 
-- [ ] Python 환경 설정 (pyenv + 가상환경)
-- [ ] Coqui TTS 설치 및 테스트
+- (없음)
 
 ## 남은 작업
 
@@ -36,7 +46,7 @@
 
 | 태스크 | 담당 가능 에이전트 | 상태 |
 |--------|------------------|------|
-| Python 환경 설정 스크립트 작성 | 모든 에이전트 | 대기 |
+| Python 환경 설정 스크립트 작성 | 모든 에이전트 | **완료** |
 | 녹음 가이드 문서 작성 | 모든 에이전트 | 대기 |
 | Jupyter 노트북 뼈대 작성 | 모든 에이전트 | 대기 |
 
@@ -45,8 +55,11 @@
 - XTTS v2를 첫 번째 클로닝 도구로 선택 (이유: 6초 샘플로 클로닝 가능, 한국어 지원)
 - 음성 샘플은 .gitignore 처리 (개인정보 보호)
 - 강의 자료는 docs/ 디렉토리에 단계별로 관리
+- **transformers 5.x는 coqui-tts 0.27.5와 비호환** → 4.43~4.x 사용 필수
+- **PyTorch 2.9+부터 torchcodec 필수** → `coqui-tts[codec]`으로 설치
 
 ## 메모
 
 - M5 Max + 128GB RAM → 로컬 학습 충분히 가능
 - 추후 Gemini, Codex 등 다른 에이전트 투입 계획
+- Python 3.12.13 사용 중 (시스템 Python은 3.14.3이나 .venv는 3.12)
