@@ -123,9 +123,18 @@ python scripts/clone_voice.py \
 
 ```python
 from TTS.api import TTS
+import torch
 
 # 모델 로딩 (첫 실행 시 다운로드)
 tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
+
+# 실행 디바이스 선택 (CPU / CUDA / MPS)
+device = "cpu"
+if torch.cuda.is_available():
+    device = "cuda"
+elif torch.backends.mps.is_available():
+    device = "mps"
+tts.to(device)
 
 # 한국어 음성 합성
 tts.tts_to_file(
@@ -230,7 +239,8 @@ Connection error / Timeout
 RuntimeError: MPS backend error
 ```
 
-- `gpu=False` (CPU 모드)로 전환
+- 스크립트 사용 시: `--use-gpu` 옵션을 제거하여 CPU 모드로 전환
+- Python API 사용 시: `gpu=False`로 로드하고 `tts.to("cpu")`로 실행
 - PyTorch 버전 확인: `python -c "import torch; print(torch.__version__)"`
 - 최소 PyTorch 2.10.0 필요
 
