@@ -57,5 +57,5 @@ ai-voice-lab/
 - [x] **1단계:** [환경 설정](docs/01-setup.md) — Python, Coqui TTS 설치 및 동작 확인
 - [x] **2단계:** [음성 샘플 녹음](docs/02-recording.md) — 녹음 가이드 문서 작성 완료
 - [x] **3단계:** [XTTS v2로 음성 클로닝](docs/03-cloning.md) — 음성 복제 실습 완료
-- [ ] **4단계:** [파인튜닝](docs/04-finetuning.md) — 클로닝 품질 향상
+- [ ] **4단계:** [파인튜닝](docs/04-finetuning.md) — 문서 초안 작성, 학습 검증 진행 예정
 - [ ] **5단계:** [OpenClaw 연동](docs/05-integration.md) — AI 어시스턴트와 커스텀 음성 통합
