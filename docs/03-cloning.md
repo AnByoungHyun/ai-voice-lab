@@ -146,12 +146,13 @@ tts.tts_to_file(
 print("합성 완료!")
 ```
 
-> **참고:** `gpu=True`로 설정하면 Apple Silicon의 MPS를 사용하여 합성 속도가 빨라집니다.
-> 메모리가 부족하면 `gpu=False`(CPU)로 실행하세요.
+> **참고:** 프로젝트의 `scripts/clone_voice.py`는 `--use-gpu` 옵션 사용 시 실행 환경을 확인해 `CUDA` 또는 `MPS`를 자동 선택합니다.
+> GPU를 사용하지 않으려면 `--use-gpu`를 빼고 실행하면 됩니다(CPU 고정).
+> Python API를 직접 쓸 때는 `gpu=False`로 모델을 로드한 뒤 `tts.to("cuda")` 또는 `tts.to("mps")`로 디바이스를 이동하세요.
 
 ## CPU vs GPU(MPS) 비교
 
-| 항목 | CPU (`gpu=False`) | MPS (`gpu=True`) |
+| 항목 | CPU (`--use-gpu` 미사용) | MPS (`--use-gpu` 사용) |
 |------|-------------------|-------------------|
 | 합성 속도 | 느림 (문장당 10~30초) | 빠름 (문장당 2~8초) |
 | 메모리 사용 | 낮음 (~2GB) | 높음 (~4GB) |
@@ -232,6 +233,16 @@ RuntimeError: MPS backend error
 - `gpu=False` (CPU 모드)로 전환
 - PyTorch 버전 확인: `python -c "import torch; print(torch.__version__)"`
 - 최소 PyTorch 2.10.0 필요
+
+### CUDA 관련 에러 (macOS에서 자주 보이는 경우)
+
+```
+AssertionError: CUDA is not availabe on this machine.
+```
+
+- macOS에서는 CUDA 대신 MPS를 사용해야 합니다.
+- `scripts/clone_voice.py` 사용 시 `--use-gpu` 옵션으로 MPS가 자동 선택되는지 확인하세요.
+- Python API 직접 호출 시 `gpu=True` 대신 `gpu=False` + `tts.to("mps")` 방식으로 실행하세요.
 
 ### 메모리 부족
 
