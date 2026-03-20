@@ -4,8 +4,8 @@
 
 ## 현재 상태
 
-**단계:** 3단계 음성 클로닝 진행 중
-**마지막 업데이트:** 2026-03-18
+**단계:** 4단계 파인튜닝 준비
+**마지막 업데이트:** 2026-03-20
 **담당:** Claude Code
 
 ## 완료된 작업
@@ -30,19 +30,22 @@
 
 ## 진행 중인 작업
 
-- [ ] 3단계: XTTS v2 음성 클로닝 (task-003)
-  - [x] 태스크 정의 (tasks/task-003-voice-cloning.md)
-  - [x] 클로닝 스크립트 작성 (scripts/clone_voice.py)
-  - [x] 강의 문서 작성 (docs/03-cloning.md)
-  - [ ] 실제 음성으로 테스트 실행
+- [ ] 4단계: 파인튜닝 (task-004 예정)
 
 ## 남은 작업
 
-- [ ] 3단계: XTTS v2 음성 클로닝
 - [ ] 4단계: 파인튜닝
 - [ ] 5단계: OpenClaw TTS 연동
 - [ ] Jupyter 노트북 작성
 - [ ] 강의용 슬라이드 자료 정리
+
+## 최근 완료 작업
+
+- [x] 3단계: XTTS v2 음성 클로닝 (task-003)
+  - [x] 태스크 정의
+  - [x] 클로닝 스크립트 작성 (`scripts/clone_voice.py`)
+  - [x] 강의 문서 작성 (`docs/03-cloning.md`)
+  - [x] 실제 음성 테스트 실행 (`output/clone_ko_test.wav`, `output/clone_en_test.wav`)
 
 ## 병렬 처리 가능한 태스크
 
