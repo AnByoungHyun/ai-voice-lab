@@ -1,0 +1,29 @@
+---
+description: Git 승인 게이트와 위험 명령 안전 규칙
+alwaysApply: true
+---
+
+# Git Safety And Approval
+
+## 승인 게이트
+
+- `git commit`, `git push` 실행 전 반드시 사용자 승인을 받는다.
+- 승인 전에는 상태 확인(`git status`, `git diff`)과 변경 요약만 수행한다.
+- 승인 요청 시 다음을 함께 제시한다:
+  - 변경 파일 목록
+  - 핵심 변경 이유(왜 변경했는지)
+  - 검증 결과 또는 미검증 항목
+
+## 위험 명령 제한
+
+- 아래 명령은 사용자 명시 요청 없이는 실행하지 않는다:
+  - `git reset --hard`
+  - `git checkout -- <path>`
+  - `git push --force`
+- 기존 사용자 변경사항을 임의로 되돌리지 않는다.
+
+## 커밋 제외 대상
+
+- 비밀정보/대용량 데이터는 커밋하지 않는다:
+  - `.env`, credential 파일
+  - `samples/`, `models/` 내 추적 금지 대상

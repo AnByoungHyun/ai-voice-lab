@@ -13,6 +13,9 @@ models/*.safetensors
 # 음성 샘플 (개인정보 보호)
 samples/
 
+# 합성 결과물
+output/
+
 # Jupyter
 .ipynb_checkpoints/
 
