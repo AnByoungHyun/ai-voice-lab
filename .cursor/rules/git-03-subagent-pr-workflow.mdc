@@ -12,7 +12,7 @@ alwaysApply: true
 - Diff Reviewer: 회귀 가능성, 누락, 위험 변경 탐지
 - Test Validator: 실행 가능한 검증 절차 수행 및 결과 요약
 - Docs Consistency: `PROGRESS.md`, `tasks/`, `docs/` 동기화 점검
-- Docs Reviewer: `.cursor/skills/review-edu-docs/SKILL.md` 기준 문서 품질 검수
+- Docs Reviewer: `.cursor/agents/review-edu-docs.md` 에이전트로 문서 품질 검수
 - Commit Message Writer: staged diff 기반 메시지 후보 작성
 - PR Composer: 전체 커밋 맥락 기반 PR 본문 작성
 
