@@ -16,6 +16,8 @@ import sys
 import time
 from pathlib import Path
 
+import torch
+
 # 프로젝트 루트 기준 기본 경로
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "output"
@@ -124,13 +126,36 @@ def clone_voice(
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     print(f"[1/3] 모델 로딩 중: {MODEL_NAME}")
-    print(f"      GPU 사용: {'예 (MPS/CUDA)' if use_gpu else '아니오 (CPU)'}")
+    print(f"      GPU 사용 요청: {'예 (MPS/CUDA)' if use_gpu else '아니오 (CPU)'}")
     start = time.time()
 
-    tts = TTS(model_name=MODEL_NAME, gpu=use_gpu)
+    # Coqui TTS의 gpu=True는 macOS(MPS)에서 실패할 수 있어 항상 CPU로 안전 로드한다.
+    # 이후 아래 분기에서 실행 디바이스를 명시적으로 선택해, CPU/CUDA/MPS를 동일한 방식으로 제어한다.
+    tts = TTS(model_name=MODEL_NAME, gpu=False)
+    device = "cpu"
+    if use_gpu:
+        # 우선순위:
+        # 1) CUDA (NVIDIA 환경)
+        # 2) MPS (Apple Silicon 환경)
+        # 3) 둘 다 없으면 CPU 폴백
+        #
+        # 필요 시 정책 변경 가능:
+        # - CPU 고정: `--use-gpu` 미사용
+        # - CUDA 우선 대신 MPS 우선: 아래 if/elif 순서 변경
+        if torch.cuda.is_available():
+            device = "cuda"
+        elif torch.backends.mps.is_available():
+            device = "mps"
+        else:
+            print("[경고] 사용 가능한 GPU(CUDA/MPS)가 없어 CPU로 실행합니다.")
+
+    # 최종 선택된 디바이스로 모델을 이동한다.
+    # (cpu/cuda/mps 모두 동일 API)
+    tts.to(device)
 
     load_time = time.time() - start
     print(f"      모델 로딩 완료 ({load_time:.1f}초)")
+    print(f"      실행 디바이스: {device}")
 
     print(f"[2/3] 음성 합성 중...")
     print(f"      텍스트: \"{text}\"")
