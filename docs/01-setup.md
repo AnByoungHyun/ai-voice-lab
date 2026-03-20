@@ -28,7 +28,7 @@
 | **torchcodec** | PyTorch 2.9+에서 오디오/비디오 인코딩·디코딩을 처리하는 라이브러리 |
 | **venv** | Python 내장 가상환경 도구. 프로젝트별로 독립된 패키지 환경을 만들어준다 |
 
-> 전체 용어집은 [00-glossary.md](./00-glossary.md)를 참고하세요.
+> 전체 용어집은 [99-glossary.md](./99-glossary.md)를 참고하세요.
 
 ## 시스템 요구사항
 

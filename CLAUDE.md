@@ -33,9 +33,11 @@ ai-voice-lab/
 ├── README.md          ← 프로젝트 소개
 ├── requirements.txt   ← Python 의존성
 ├── docs/              ← 단계별 강의 자료
-│   ├── 00-glossary.md
+│   ├── 00-tts-ml-concepts.md
 │   ├── 01-setup.md
-│   └── 02-recording.md
+│   ├── 02-recording.md
+│   ├── 03-cloning.md
+│   └── 99-glossary.md
 ├── tasks/             ← 독립 태스크 정의
 ├── scripts/           ← 유틸리티 스크립트
 ├── notebooks/         ← Jupyter 실습 노트북
@@ -61,7 +63,7 @@ ai-voice-lab/
 - **단계별 구조** (따라하면 결과가 나오는 형태)
 - **코드 실행 가능성** (복사-붙여넣기로 동작)
 - **트러블슈팅** 포함
-- **용어 일관성** 유지 (docs/00-glossary.md 참조)
+- **용어 일관성** 유지 (docs/99-glossary.md 참조)
 - 대상 독자: AI/ML에 관심 있는 **개발자** (완전 초보 아님)
 
 ## 태스크 작업 방법
@@ -90,4 +92,4 @@ ai-voice-lab/
 
 - [PROGRESS.md](./PROGRESS.md) - 현재 진행 상황
 - [AGENTS.md](./AGENTS.md) - 범용 에이전트 가이드 (참고용)
-- [docs/00-glossary.md](./docs/00-glossary.md) - 용어집
+- [docs/99-glossary.md](./docs/99-glossary.md) - 용어집

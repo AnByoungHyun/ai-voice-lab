@@ -36,11 +36,13 @@
 ai-voice-lab/
 ├── README.md
 ├── docs/                  # 과정 문서 및 강의 자료
+│   ├── 00-tts-ml-concepts.md # 개념 이해 (머신러닝/TTS/파인튜닝)
 │   ├── 01-setup.md        # 환경 설정
 │   ├── 02-recording.md    # 음성 샘플 녹음
 │   ├── 03-cloning.md      # 음성 클로닝 (XTTS v2)
 │   ├── 04-finetuning.md   # 파인튜닝
-│   └── 05-integration.md  # OpenClaw TTS 연동
+│   ├── 05-integration.md  # OpenClaw TTS 연동
+│   └── 99-glossary.md     # 용어집(참고 문서)
 ├── samples/               # 녹음된 음성 샘플
 ├── models/                # 학습된 모델 저장
 ├── scripts/               # 유틸리티 스크립트
@@ -51,6 +53,7 @@ ai-voice-lab/
 
 각 단계별 문서를 순서대로 따라가면 됩니다:
 
+- [ ] **0단계(선택):** [개념 이해](docs/00-tts-ml-concepts.md) — XTTS v2/클로닝/파인튜닝 개념 정리
 - [x] **1단계:** [환경 설정](docs/01-setup.md) — Python, Coqui TTS 설치 및 동작 확인
 - [x] **2단계:** [음성 샘플 녹음](docs/02-recording.md) — 녹음 가이드 문서 작성 완료
 - [x] **3단계:** [XTTS v2로 음성 클로닝](docs/03-cloning.md) — 음성 복제 실습 완료

@@ -25,8 +25,9 @@
 - [x] 교안 검수 결과에 따른 문서 보완 (2026-03-18)
   - docs/01-setup.md: 학습 목표, 핵심 용어, 사전 지식, TTS 테스트 대안 추가
   - README.md: 대상 독자, 기술 소개 표, docs 링크 연결, Python 버전 통일
-  - docs/00-glossary.md: 용어집 신규 생성
+  - docs/99-glossary.md: 용어집 신규 생성
 - [x] 2단계 녹음 가이드 작성 (docs/02-recording.md, task-002)
+- [x] 개념 설명 문서 추가 (docs/00-tts-ml-concepts.md)
 
 ## 진행 중인 작업
 
